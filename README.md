@@ -1,2 +1,2 @@
 # React
-This is a repostiroy that has React code.
+This is a reposotory that has React code.
