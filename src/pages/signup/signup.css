@@ -3,23 +3,55 @@
     padding: 0;
 }
 .cover{
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    align-items: center;
+}
+.google-account-text{
+    margin-bottom: 25px;
 }
 .name{
     display: flex;
     justify-content: center;
 }
 .sign{
-   margin: 10px 10px;
+   margin: 10px;
 }
+
 .supEmail{
     width: 30vw;
+}
+.password{
+    width: 18vw;
 }
 .submit-signup{
     height: 7vh;
     width: 8vw;
 }
+.span-text{
+    color: blue;
+    text-decoration: none;
+}
+.login-and-button{
+    display: flex;
+    justify-content: center;
+}
+.anchor{
+    margin-right: 14vw;
+    display: flex;
+    align-items: center;
+}
+.email-comment{
+    margin-right: 13vw;
+    margin-bottom: 4vh;
+}
+.password-comment{
+    margin-bottom: 4vh;
+}
+/* .gimg{
+    position: absolute;
+    top: 15vw;
+    left: 60vw;
+} */

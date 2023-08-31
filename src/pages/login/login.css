@@ -2,20 +2,25 @@
     margin: 0;
     padding: 0;
 }
-.loginCover{
+.loginPage{
+    width: 98vw;
+    height: 98vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
+    align-items: center;
 }
-.name{
+.log{
+    margin: 10px
+}
+.cred{
+    width: 27vw;
+}
+.forgot-password{
+    margin-left: 19vw;
+}
+.signup-and-button{
+    margin-top: 3vh;
     display: flex;
     justify-content: center;
-}
-.sign{
-   margin: 10px 10px;
-}
-.supEmail{
-    width: 30vw;
 }
