@@ -1,57 +1,163 @@
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
-.cover{
+.cover {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.google-account-text{
+.fundooImage {
+    margin-left: 5vw;
+}
+.google-account-text {
+    margin-left: 2vw;
     margin-bottom: 25px;
 }
-.name{
+.name {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
-.sign{
-   margin: 10px;
+.sign {
+    margin: 10px;
 }
-
-.supEmail{
+.supEmail {
     width: 30vw;
 }
-.password{
-    width: 18vw;
-}
-.submit-signup{
+.submit-signup {
     height: 7vh;
     width: 8vw;
 }
-.span-text{
+.span-text {
     color: blue;
     text-decoration: none;
 }
-.login-and-button{
+.login-and-button {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
-.anchor{
+.anchor {
     margin-right: 14vw;
     display: flex;
     align-items: center;
 }
-.email-comment{
-    margin-right: 13vw;
+.email-comment {
+    margin-left: 0.5vw;
     margin-bottom: 4vh;
 }
-.password-comment{
+.password-comment {
+    margin-left: 0.5vw;
     margin-bottom: 4vh;
 }
-/* .gimg{
+.sp-box {
+    margin-right: 20vw;
+    margin-top: -3vh;
+}
+.gimg {
     position: absolute;
-    top: 15vw;
+    top: 40vh;
     left: 60vw;
-} */
+    /* display: none; */
+}
+.in-box {
+    width: 50vw;
+    padding: 1vw;
+    border: 1px solid rgba(2, 0, 0, 0.226);
+    border-radius: 30px;
+}
+@media (min-width: 768px) and (max-width: 1080px){
+    .in-box {
+        width: 94vw;
+    }
+    h1{
+        font-size: 45px;
+    }
+    .fundooImage {
+        width: 40%;
+    }
+    .supEmail {
+        width: 75vw;
+    }
+    .sup{
+        width: 36vw;
+    }
+    .submit-signup {
+        width: 150px;
+    }
+    .login-and-button {
+        display: flex;
+        justify-content: left;
+    }
+    .submit-signup{
+        height: 5vh;
+        width: 25vw;
+    }
+    .gimg {
+        position: absolute;
+        top: 21vh;
+        left: 79vw;
+    }
+}
+@media (min-width: 441px) and (max-width: 767px) {
+    .in-box {
+        width: 96vw;
+        border:0px solid white;
+    }
+    .fundooImage {
+        width: 40%;
+    }
+    .gimg {
+        display: none;
+    }
+    .supEmail {
+        width: 75vw;
+    }
+    .sup{
+        width: 36vw;
+    }
+    .submit-signup {
+        width: 150px;
+    }
+    .login-and-button {
+        display: flex;
+        justify-content: left;
+    }
+    .submit-signup{
+        height: 5vh;
+        width: 25vw;
+    }
+}
+
+@media (max-width: 440px) {
+    .in-box {
+        width: 95vw;
+    }
+    .gimg{
+        display: none;
+    }
+    .name{
+        display: flex;
+        flex-direction: column;
+    }
+    .sup, .supEmail, .password{
+        width: 70vw;
+    }
+    
+    .fundooImage{
+        width: 70vw;
+    }
+    h1{
+        font-size: 23px;
+    }
+    .password-comment,
+    .email-comment{
+        display: none;
+    }
+    .submit-signup{
+        height: 3vh;
+        width: 25vw;
+    }
+}

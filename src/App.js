@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 import SignupForm from './pages/signup/signup';
 import LoginForm from './pages/login/login';
 import {
@@ -11,16 +10,18 @@ import {
 
 function App() {
   return (
+    // <div>
+    //   <SignupForm />
+    //   {/* <LoginForm /> */}
+    // </div>
     <Router>
-        <Routes>
-          <Route exact path="/login" element={<LoginForm />}>
-            
-          </Route>
-          <Route exact path="/signup" element={<SignupForm />}>
-            
-          </Route>
-        </Routes>
-    </Router >
+      <Routes>
+        <Route exact path="/signup" element = {<SignupForm />}> 
+        </Route>
+        <Route exact path="/login" element = {<LoginForm />}>     
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
