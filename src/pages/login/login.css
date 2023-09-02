@@ -1,53 +1,58 @@
-*{
-    margin: 0;
-    padding: 0;
+.big-box{
+    margin-top: 20vh;
+    width: 100vw;
+    height: 80vh;
 }
-.loginPage{
-    width: 98vw;
-    height: 98vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.log-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40vw;
-    height: 64vh;
-    border: 1px solid rgba(2, 0, 0, 0.226);
+.login-page{
+    margin: auto;
+    border: 1px solid gray;
     border-radius: 30px;
+    width: 35%;
+    height: 70%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fundoo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 1.5vw;
+}
+.fundoo-logo{
+    width: 60%;
+}
+
+.cred{
+    width: 80%;
 }
 .log{
-    margin: 10px
+    width: 85%;
 }
-.cred{
-    width: 27vw;
+.login-name{
+    height: 40%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .forgot-password{
-    margin-left: 19vw;
+    width: 85%;
+    float: left;
 }
 .signup-and-button{
-    margin-top: 3vh;
-    margin-left: 1vw;
+    margin-top: 3%;
     display: flex;
-    justify-content: center;
+    width: 70%;
 }
-@media (min-width: 500px) and (max-width: 768px){
-    .log-box{
-        width: 490px;
-    }
-    .cred{
-        width:350px ;
-    }
+.submit-login{
+    float: right;
 }
-@media (min-width: 769px) and (max-width: 1100px){
-    .log-box{
-        width: 700px;
-    }
-    .cred{
-        width:350px ;
-    }
+.anchor{
+    width: 50%;
 }

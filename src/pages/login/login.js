@@ -7,17 +7,20 @@ import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
     return (
-        <div className='loginPage'>
-            <div className="log-box">
-                <img
-                    src={fundooImage}
-                    width='300vw'
-                    alt='Fundoo'
-                />
-                <h1>Login to your Fundoo Account</h1>
-                <div className='log'><TextField className="cred" label="Email" variant="outlined" required /></div>
-                <div className='log'><TextField className="cred" type='Password' label="Password" variant="outlined" required /></div>
-                <div className='forgot-password'><Link className='span-text' to='/forgot-password'>Forgot Password</Link>
+        <div className="big-box">
+            <div className='login-page'>
+                <div className="fundoo">
+                    <img className='fundoo-logo'
+                        src={fundooImage}
+                        alt='Fundoo'
+                    />
+                    <h1>Login to your Fundoo Account</h1>
+                </div>
+                <div className="login-name">
+                    <div className='log'><TextField className="cred" label="Email" variant="outlined" required /></div>
+                    <div className='log'><TextField className="cred" type='Password' label="Password" variant="outlined" required /></div>
+                    <div className='forgot-password'><Link className='span-text' to='/forgot-password'>Forgot Password</Link>
+                    </div>
                 </div>
                 <div className='signup-and-button'>
                     <div className='anchor'><Link className='span-text' to='/signup'>Create Account</Link>

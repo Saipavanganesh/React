@@ -1,163 +1,52 @@
-
-* {
-    margin: 0;
-    padding: 0;
+.total-page{
+    margin-top: 10vh;
+    width: 100vw;
+    height: 90vh;
 }
-.cover {
-    height: 100vh;
+.in-box{
+    margin: auto;
+    width: 55%;
+    height: 85%;
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 30px;
+}
+.sign-up{
+    width:85%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+
+}
+.google-logo-box{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    width: 37%;
+}  
+.fundoo-image{
+    width: 60%;
 }
-.fundooImage {
-    margin-left: 5vw;
+h1{
+    font-size: 25px;
 }
-.google-account-text {
-    margin-left: 2vw;
-    margin-bottom: 25px;
-}
-.name {
+.name{
     display: flex;
-    justify-content: left;
 }
-.sign {
-    margin: 10px;
+
+.email-text-box{
+    width: 28.5vw;
 }
-.supEmail {
-    width: 30vw;
+.text-box, .email{
+    margin-right: 2%;
 }
-.submit-signup {
-    height: 7vh;
-    width: 8vw;
-}
-.span-text {
+a{
     color: blue;
     text-decoration: none;
 }
-.login-and-button {
+.login-and-button{
     display: flex;
-    justify-content: left;
-}
-.anchor {
-    margin-right: 14vw;
-    display: flex;
-    align-items: center;
-}
-.email-comment {
-    margin-left: 0.5vw;
-    margin-bottom: 4vh;
-}
-.password-comment {
-    margin-left: 0.5vw;
-    margin-bottom: 4vh;
-}
-.sp-box {
-    margin-right: 20vw;
-    margin-top: -3vh;
-}
-.gimg {
-    position: absolute;
-    top: 40vh;
-    left: 60vw;
-    /* display: none; */
-}
-.in-box {
-    width: 50vw;
-    padding: 1vw;
-    border: 1px solid rgba(2, 0, 0, 0.226);
-    border-radius: 30px;
-}
-@media (min-width: 768px) and (max-width: 1080px){
-    .in-box {
-        width: 94vw;
-    }
-    h1{
-        font-size: 45px;
-    }
-    .fundooImage {
-        width: 40%;
-    }
-    .supEmail {
-        width: 75vw;
-    }
-    .sup{
-        width: 36vw;
-    }
-    .submit-signup {
-        width: 150px;
-    }
-    .login-and-button {
-        display: flex;
-        justify-content: left;
-    }
-    .submit-signup{
-        height: 5vh;
-        width: 25vw;
-    }
-    .gimg {
-        position: absolute;
-        top: 21vh;
-        left: 79vw;
-    }
-}
-@media (min-width: 441px) and (max-width: 767px) {
-    .in-box {
-        width: 96vw;
-        border:0px solid white;
-    }
-    .fundooImage {
-        width: 40%;
-    }
-    .gimg {
-        display: none;
-    }
-    .supEmail {
-        width: 75vw;
-    }
-    .sup{
-        width: 36vw;
-    }
-    .submit-signup {
-        width: 150px;
-    }
-    .login-and-button {
-        display: flex;
-        justify-content: left;
-    }
-    .submit-signup{
-        height: 5vh;
-        width: 25vw;
-    }
-}
-
-@media (max-width: 440px) {
-    .in-box {
-        width: 95vw;
-    }
-    .gimg{
-        display: none;
-    }
-    .name{
-        display: flex;
-        flex-direction: column;
-    }
-    .sup, .supEmail, .password{
-        width: 70vw;
-    }
-    
-    .fundooImage{
-        width: 70vw;
-    }
-    h1{
-        font-size: 23px;
-    }
-    .password-comment,
-    .email-comment{
-        display: none;
-    }
-    .submit-signup{
-        height: 3vh;
-        width: 25vw;
-    }
+    width: 77%;
+    justify-content: space-between;
 }
