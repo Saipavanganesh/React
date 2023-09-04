@@ -21,7 +21,7 @@
     align-items: center;
 }
 h1{
-    font-size: 1.5vw;
+    font-size: 1.5em;
 }
 .fundoo-logo{
     width: 60%;
@@ -55,4 +55,21 @@ h1{
 }
 .anchor{
     width: 50%;
+}
+@media (max-width : 780px) {
+    .google-logo-box{
+        display: none;
+    }
+    .login-page{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        width: 80%;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }    
 }

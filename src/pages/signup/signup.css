@@ -6,7 +6,7 @@
 .in-box{
     margin: auto;
     width: 55%;
-    height: 85%;
+    height: 90%;
     display: flex;
     border: 1px solid gray;
     border-radius: 30px;
@@ -26,17 +26,19 @@
     width: 37%;
 }  
 .fundoo-image{
-    width: 60%;
-}
-h1{
-    font-size: 25px;
+    width: 75%;
 }
 .name{
     display: flex;
+    width: 77%;
 }
 
-.email-text-box{
-    width: 28.5vw;
+.email{
+    margin-top: 1%;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .text-box, .email{
     margin-right: 2%;
@@ -48,5 +50,23 @@ a{
 .login-and-button{
     display: flex;
     width: 77%;
+    padding-bottom: 1%;
     justify-content: space-between;
+}
+@media (max-width : 780px) {
+    .google-logo-box{
+        display: none;
+    }
+    .in-box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        width: 80%;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }    
 }
