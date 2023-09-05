@@ -23,19 +23,79 @@ const SignupForm = () => {
     value = e.target.value;
     setUser({ ...user, [name]: value });
   };
-  const validateForm = () => {};
+
+  const nameRegex = /^[a-zA-Z\s\-']+$/;
+  const emailRegex = /^[a-z]{3,}(.[0-9a-z]*)?@([a-z]){2,}.[a-z]+(.in)*$/;
+  const passwordRegex = /^.*(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=]).*$/;
+
+  const [errors, setErrors] = useState({
+    firstNameError: false,
+    firstNameHelper: "",
+    lastNameError: false,
+    lastNameHelper: "",
+    emailError: false,
+    emailHelper: "",
+    passwordError: false,
+    passwordHelper: "",
+  });
 
   const handleClick = () => {
+    let firstNameTest = nameRegex.test(user.firstName);
+    let lastNameTest = nameRegex.test(user.lastName);
+    let emailTest = emailRegex.test(user.email);
+    let passwordTest = passwordRegex.test(user.password);
+
+    if (firstNameTest === false) {
+      setErrors((prev) => ({
+        ...prev,
+        firstNameError: true,
+        firstNameHelper: "Enter Correct Name",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        firstNameError: false,
+        firstNameHelper: "",
+      }));
+    }
+
+    if (lastNameTest === false) {
+      setErrors((prev) => ({
+        ...prev,
+        lastNameError: true,
+        lastNameHelper: "Enter Correct Name",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        lastNameError: false,
+        lastNameHelper: "",
+      }));
+    }
+    if (emailTest === false) {
+      setErrors((prev) => ({
+        ...prev,
+        emailError: true,
+        emailHelper: "Enter Correct Email",
+      }));
+    } else {
+      setErrors((prev) => ({ ...prev, emailError: false, emailHelper: "" }));
+    }
+
+    if (passwordTest === false) {
+      setErrors((prev) => ({
+        ...prev,
+        passwordError: true,
+        passwordHelper: "Enter Correct Password",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        passwordError: false,
+        passwordHelper: "",
+      }));
+    }
     console.log(user);
-    alert("User Registration Successful");
-    setUser({
-      ...user,
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
   };
   return (
     <div className="total-page">
@@ -50,66 +110,37 @@ const SignupForm = () => {
               <p className="google-account-text">or use your google account</p>
             </div>
             <div className="name">
+              {/* First Name */}
               <div className="text-box">
-                <TextField
-                  className="outlined-basic"
-                  name="firstName"
-                  label="First Name"
-                  variant="outlined"
-                  onChange={handleInput}
-                  value={user.firstName}
-                  required
+                <TextField className="outlined-basic" name="firstName" label="First Name" variant="outlined" onChange={handleInput} value={user.firstName} required
+                error={errors.firstNameError} helperText={errors.firstNameHelper}
                 />
               </div>
+              {/* Last Name */}
               <div className="text-box">
-                <TextField
-                  className="outlined-basic"
-                  name="lastName"
-                  label="Last Name"
-                  variant="outlined"
-                  onChange={handleInput}
-                  value={user.lastName}
-                  required
+                <TextField className="outlined-basic" name="lastName" label="Last Name" variant="outlined" onChange={handleInput} value={user.lastName} required
+                error={errors.lastNameError} helperText={errors.lastNameHelper}
                 />
               </div>
             </div>
+            {/* Email */}
             <div className="email">
-              <TextField
-                className="email-text-box"
-                name="email"
-                label="Email"
-                variant="outlined"
-                onChange={handleInput}
-                value={user.email}
-                required
+              <TextField className="email-text-box" name="email" label="Email" variant="outlined" onChange={handleInput} value={user.email} required
+              error={errors.emailError} helperText={errors.emailHelper}
               />
-              <p className="email-comment">
-                You can use letter, numbers & periods
-              </p>
+              <p className="email-comment">You can use letter, numbers & periods</p>
             </div>
+            {/* Password */}
             <div className="name">
               <div className="text-box">
-                <TextField
-                  className="outlined-basic"
-                  name="password"
-                  label="Password"
-                  variant="outlined"
-                  onChange={handleInput}
-                  type="Password"
-                  value={user.password}
-                  required
-                />
+                <TextField className="outlined-basic" name="password" label="Password" variant="outlined" onChange={handleInput} type="Password" value={user.password} required error={errors.passwordError}
+                  helperText={errors.passwordHelper} />
               </div>
+              {/* Confirm Password */}
               <div className="text-box">
-                <TextField
-                  className="outlined-basic"
-                  name="confirmPassword"
-                  label="Confirm Password"
-                  variant="outlined"
-                  onChange={handleInput}
-                  type="Password"
-                  value={user.confirmPassword}
+                <TextField className="outlined-basic" name="confirmPassword" label="Confirm Password" variant="outlined" onChange={handleInput} type="Password" value={user.confirmPassword}
                   required
+
                 />
               </div>
             </div>
