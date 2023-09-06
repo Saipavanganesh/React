@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import fundooImage from "../../images/Fundoo.png";
 import "./login.css";
 import { Link } from "react-router-dom";
+import { signIn } from "../../services/DataServices";
 
 const LoginForm = () => {
   const [data, setData] = useState({
@@ -28,7 +29,7 @@ const LoginForm = () => {
     passwordHelper: "",
   });
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     let emailTest = emailRegex.test(data.email);
     let passwordTest = passwordRegex.test(data.password);
     if (emailTest === false) {
@@ -55,6 +56,11 @@ const LoginForm = () => {
       }));
     }
     console.log(data);
+    if(emailTest === passwordTest === true){
+      let response = await signIn(data);
+      console.log(response);
+      localStorage.setItem("token", response.data.data);
+    }
   };
   return (
     <div className="big-box">

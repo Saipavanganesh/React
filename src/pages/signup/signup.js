@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import "./signup.css";
 import { Checkbox, FormHelperText } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { signUp } from "../../services/DataServices";
 
 const SignupForm = () => {
   const [user, setUser] = useState({
@@ -37,9 +38,11 @@ const SignupForm = () => {
     emailHelper: "",
     passwordError: false,
     passwordHelper: "",
+    confirmPasswordError: false,
+    confirmPasswordHelper: "",
   });
 
-  const handleClick = () => {
+  const handleClick = async() => {
     let firstNameTest = nameRegex.test(user.firstName);
     let lastNameTest = nameRegex.test(user.lastName);
     let emailTest = emailRegex.test(user.email);
@@ -95,7 +98,27 @@ const SignupForm = () => {
         passwordHelper: "",
       }));
     }
+
+    if(user.password != user.confirmPassword){
+      setErrors((prev) => ({
+        ...prev,
+        confirmPasswordError: true,
+        confirmPasswordHelper: "Passwords doesn't match",
+      }));
+    }
+    else {
+      setErrors((prev) => ({
+        ...prev,
+        confirmPasswordError: false,
+        confirmPasswordHelper: "",
+      }));
+    }
     console.log(user);
+    if(firstNameTest === lastNameTest === emailTest === passwordTest === true){
+      let response = await signUp(user);
+      console.log(response);
+      localStorage.setItem("token", response.data.data.userId);
+    }
   };
   return (
     <div className="total-page">
@@ -138,9 +161,8 @@ const SignupForm = () => {
               </div>
               {/* Confirm Password */}
               <div className="text-box">
-                <TextField className="outlined-basic" name="confirmPassword" label="Confirm Password" variant="outlined" onChange={handleInput} type="Password" value={user.confirmPassword}
-                  required
-
+                <TextField className="outlined-basic" name="confirmPassword" label="Confirm Password" variant="outlined" onChange={handleInput} type="Password" value={user.confirmPassword} required error={errors.confirmPasswordError}
+                  helperText={errors.confirmPasswordHelper} 
                 />
               </div>
             </div>
