@@ -29,7 +29,8 @@ const LoginForm = () => {
     passwordHelper: "",
   });
 
-  const handleLogin = async () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
     let emailTest = emailRegex.test(data.email);
     let passwordTest = passwordRegex.test(data.password);
     if (emailTest === false) {
@@ -59,6 +60,9 @@ const LoginForm = () => {
     if(emailTest === passwordTest === true){
       let response = await signIn(data);
       console.log(response);
+      setTimeout(() => {
+        window.location.reload()
+      }, 500);
       localStorage.setItem("token", response.data.data);
     }
   };

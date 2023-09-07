@@ -175,7 +175,7 @@ const SignupForm = () => {
             </div>
             <div className="login-and-button">
               <div className="anchor">
-                <Link className="span-text" to="/login">
+                <Link className="span-text" to="/">
                   Sign in instead
                 </Link>
               </div>

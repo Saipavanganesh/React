@@ -1,28 +1,17 @@
 import React from 'react';
-import SignupForm from './pages/signup/signup';
-import LoginForm from './pages/login/login';
+import Router from './Router/Router';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import FundooAppBar from './components/FundooAppBar';
+// import LeftDrawer from './components/LeftDrawer';
+// import PrimarySearchAppBar from './components/FNavBar';
+
 
 function App() {
   return (
-    // <div>
-    //   <SignupForm />
-    //   {/* <LoginForm /> */}
-    // </div>
-    <Router>
-      <Routes>
-        <Route exact path="/signup" element = {<SignupForm />}> 
-        </Route>
-        <Route exact path="/login" element = {<LoginForm />}>     
-        </Route>
-      </Routes>
-    </Router>
+    <div>
+      {/* <FundooAppBar/> */}
+      <Router/>
+    </div>
   );
 }
 

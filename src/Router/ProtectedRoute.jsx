@@ -1,12 +1,11 @@
 import { Outlet, Navigate } from "react-router-dom";
- import React, { Children } from 'react';
-import { changeSectionValueFormat } from "@mui/x-date-pickers/internals/hooks/useField/useField.utils";
 
- const ProtectedRoute = ({Children}) => {
-    if(localStorage.getItem("token")){
-        return Children;
+
+const ProtectedRoute = ({children }) => {
+    if (localStorage.getItem("token")) {
+        return children;
     }
-    return <Navigate to = "/" />
- };
+    return <Navigate to="/" />
+};
 
- export default ProtectedRoute;
+export default ProtectedRoute;

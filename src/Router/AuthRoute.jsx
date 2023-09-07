@@ -6,6 +6,7 @@ const AuthRoute = ({children}) => {
         console.log("k");
         return children;
     }
+    console.log("m")
     return <Navigate to = "/dashboard" />;
     console.log("l")
 }
