@@ -3,8 +3,9 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import fundooImage from "../../images/Fundoo.png";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { signIn } from "../../services/DataServices";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [data, setData] = useState({
@@ -29,6 +30,7 @@ const LoginForm = () => {
     passwordHelper: "",
   });
 
+  const navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
     let emailTest = emailRegex.test(data.email);
@@ -60,10 +62,8 @@ const LoginForm = () => {
     if(emailTest === passwordTest === true){
       let response = await signIn(data);
       console.log(response);
-      setTimeout(() => {
-        window.location.reload()
-      }, 500);
       localStorage.setItem("token", response.data.data);
+      navigate("/dashboard");
     }
   };
   return (

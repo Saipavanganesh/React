@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled, useTheme, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -16,7 +16,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import LeftDrawer from "./LeftDrawer";
 import Avatar from "@mui/material/Avatar";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -41,6 +40,7 @@ import GridViewIcon from '@mui/icons-material/GridOnOutlined';
 
 //Paper
 import Paper from '@mui/material/Paper';
+import { useNavigate } from "react-router-dom";
 
 
 const drawerWidth = 240;
@@ -165,13 +165,12 @@ export  function MiniDrawer() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigate = useNavigate();
   const handleLogout = () => {
     if(localStorage.key){
       localStorage.removeItem("token")
     }
-    setTimeout(() => {
-      window.location.reload()
-    }, 500);
+    navigate("/")
   }
     return (
     <Box sx={{ display: "flex" }}>
