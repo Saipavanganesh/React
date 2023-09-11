@@ -41,6 +41,7 @@ import GridViewIcon from '@mui/icons-material/GridOnOutlined';
 //Paper
 import Paper from '@mui/material/Paper';
 import { useNavigate } from "react-router-dom";
+// import FunAppBar from "./AppBar";
 
 
 const drawerWidth = 240;
@@ -175,6 +176,7 @@ export  function MiniDrawer() {
     return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
+      {/* <FunAppBar open={open}/> */}
       <AppBar position="fixed">
         <Toolbar style={{backgroundColor:'white', color:'gray'}}>
           <IconButton
@@ -292,7 +294,6 @@ export  function MiniDrawer() {
           </div>
         </Toolbar>
       </AppBar>
-
       <Drawer variant="permanent" open={open}>
         <DrawerHeader></DrawerHeader>
         <List>

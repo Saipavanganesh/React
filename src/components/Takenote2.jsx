@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { TextareaAutosize } from '@mui/base/TextareaAutosize';
 import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+import { IconButton, TextField } from '@mui/material';
 //Icons
 import PinIcon from '@mui/icons-material/PushPinOutlined';
 import RemindMeIcon from '@mui/icons-material/AddAlertOutlined';
@@ -14,12 +14,33 @@ import ArchiveIcon from '@mui/icons-material/ArchiveOutlined';
 import MoreIcon from '@mui/icons-material/MoreVertOutlined';
 import UndoIcon from '@mui/icons-material/UTurnLeftOutlined';
 import RedoIcon from '@mui/icons-material/UTurnRightOutlined';
+import { createNotes, getNotes } from '../services/NoteServices';
+import TakeNote3 from './Takenote3';
+// import './Takenote2.css';
 
 
 export default function SimplePaper({ setNotesInput }) {
-    const handleClick = (event) => {
+    const handleClick = async () => {
         setNotesInput((prev) => !prev)
+        console.log(notes);
+        if (notes != null && notes.Title!= "") {
+            let response = await createNotes(notes);
+            console.log(response);
+        }
     }
+
+    const [notes, setNotes] = useState({
+        Title: "",
+        Description: "",
+    });
+
+    let name, desc;
+    const handleNotesInput = (e) => {
+        name = e.target.name;
+        desc = e.target.value;
+        setNotes({ ...notes, [name]: desc });
+    }
+
     return (
         <Box
             sx={{
@@ -34,29 +55,82 @@ export default function SimplePaper({ setNotesInput }) {
         >
             <Paper elevation={3}>
                 <Box>
-                    <TextField id="standard-basic" placeholder='Title' multiline maxRows={Infinity} variant="standard" InputProps={{ disableUnderline: true }} style={{ margin: '1ch', width: 550 }} />
+                    <TextField id="standard-basic" placeholder='Title' multiline maxRows={Infinity} variant="standard" InputProps={{ disableUnderline: true }} style={{ margin: '1ch', width: 530 }} name="Title" onChange={handleNotesInput} value={notes.Title} />
 
-                    <PinIcon style={{ marginTop: '1ch' }} />
 
-                    <TextField id="standard-basic" placeholder='Take a note...' multiline maxRows={Infinity} variant="standard" InputProps={{ disableUnderline: true }} style={{ margin: '1ch', width: 580 }} />
+                    <IconButton>
+                        <PinIcon style={{
+                            marginTop: "1ch"
+                        }} />
+                    </IconButton>
 
-                    <RemindMeIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
+                    <TextField id="standard-basic" placeholder='Take a note...' multiline maxRows={Infinity} variant="standard" InputProps={{ disableUnderline: true }} style={{ margin: '1ch', width: 580 }} name="Description" onChange={handleNotesInput} value={notes.Description} />
 
-                    <CollaboratorIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
+                    <IconButton>
+                        <RemindMeIcon style={{
+                            width: 17,
+                            marginLeft: "2ch",
+                        }} />
+                    </IconButton>
 
-                    <ColorChangeIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
+                    <IconButton>
+                        <CollaboratorIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                        }} />
+                    </IconButton>
 
-                    <ImageIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
-                    <ArchiveIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
+                    <IconButton>
+                        <ColorChangeIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                        }} />
+                    </IconButton>
 
-                    <MoreIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch' }} />
+                    <IconButton>
+                        <ImageIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                        }} />
+                    </IconButton>
 
-                    <UndoIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch', rotate: '90deg' }} />
+                    <IconButton>
+                        <ArchiveIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                        }} />
+                    </IconButton>
 
-                    <RedoIcon style={{ width: 17, marginLeft: '2ch', marginTop: '2ch', rotate: '-90deg' }} />
+                    <IconButton>
+                        <MoreIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                        }} />
+                    </IconButton>
 
-                    <Button variant="text" onClick={handleClick} style={{ color: 'black', marginLeft: '20ch', marginBottom: '2ch' }}>Close</Button>
+                    <IconButton>
+                        <UndoIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                            rotate: '90deg'
+                        }} />
+                    </IconButton>
 
+                    <IconButton>
+                        <RedoIcon style={{
+                            width: 17,
+                            marginLeft: "1ch",
+                            rotate: '-90deg'
+                        }} />
+                    </IconButton>
+
+                    <IconButton>
+                        <Button variant="text" onClick={handleClick} style={{
+                            width: 17,
+                            marginLeft: "12ch",
+                            color: 'gray'
+                        }} >Close</Button>
+                    </IconButton>
                 </Box>
             </Paper>
         </Box>

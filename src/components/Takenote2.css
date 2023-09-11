@@ -1,0 +1,25 @@
+.icon {
+  width: 17px;
+    margin-left: "2ch";
+  margin-top: "2ch";
+}
+
+.icon {
+  margin-left: "12%";
+  margin-top: "2%";
+}
+
+.left-turn{
+    rotate: '90deg'; 
+}
+.rigtht-turn{
+    rotate: '-90deg'; 
+}
+.close{
+    color: 'black';
+    margin-left: '20ch';
+    margin-bottom: '2ch' ;
+}
+.pin{
+    margin-top: '1ch' ;
+}
