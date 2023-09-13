@@ -151,7 +151,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export  function MiniDrawer() {
+export  function MiniDrawer({setNotesType}) {
   //Drawer
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -173,6 +173,9 @@ export  function MiniDrawer() {
     }
     navigate("/")
   }
+
+  // const [archiveNotes, setArchiveNotes] = useState(true);
+
     return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -314,11 +317,11 @@ export  function MiniDrawer() {
                       justifyContent: "center",
                     }}
                   >
-                    {index === 0 ? <LightbulbIcon /> : " "}
+                    {index === 0 ? <LightbulbIcon onClick={()=>setNotesType("Notes")}/> : " "}
                     {index === 1 ? <NotificationsIcon /> : ""}
                     {index === 2 ? <LabelsIcon /> : ""}
-                    {index === 3 ? <ArchiveIcon /> : ""}
-                    {index === 4 ? <DeleteIcon /> : ""}
+                    {index === 3 ? <ArchiveIcon onClick={()=>setNotesType("Archive")}/> : ""}
+                    {index === 4 ? <DeleteIcon onClick={()=>setNotesType("Trash")}/> : ""}
                   </ListItemIcon>
                   <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
                 </ListItemButton>

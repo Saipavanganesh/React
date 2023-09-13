@@ -19,13 +19,14 @@ import TakeNote3 from './Takenote3';
 // import './Takenote2.css';
 
 
-export default function SimplePaper({ setNotesInput }) {
+export default function SimplePaper({ setNotesInput, getAllNotes }) {
     const handleClick = async () => {
         setNotesInput((prev) => !prev)
         console.log(notes);
         if (notes != null && notes.Title!= "") {
             let response = await createNotes(notes);
             console.log(response);
+            getAllNotes();
         }
     }
 

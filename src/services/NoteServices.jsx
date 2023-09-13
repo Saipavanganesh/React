@@ -26,10 +26,27 @@ export const getNotes = async () => {
     // console.log(response);
     return response;
 }
-// export const deleteNotes = async (id) => {
-//     let response = await axios.get(
-//         "https://fundooapp.azurewebsites.net/api/Notes/notes",
-//         id,Authorize()
-//     )
-//     return response;
-// }
+export const trashNotes = async (id) => {
+    let response = await axios.post(
+        `https://fundooapp.azurewebsites.net/api/Notes/trash?notesId=${id}`,
+        null,
+        Authorize()
+    )
+    return response;
+}
+export const pinNotes = async (id) => {
+    let response = await axios.post(
+        `https://fundooapp.azurewebsites.net/api/Notes/pin?notesId=${id}`,
+        null,
+        Authorize()
+    )
+    return response;
+}
+export const archiveNotes = async (id) => {
+    let response = await axios.post(
+        `https://fundooapp.azurewebsites.net/api/Notes/archive?notesId=${id}`,
+        null,
+        Authorize()
+    )
+    return response;
+}
